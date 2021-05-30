@@ -1,0 +1,363 @@
+@startuml
+class com.example.hienglish.fragments.CategoryFragment {
+~ Intent categorieIntent
+~ View.OnClickListener clickListener
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+}
+class com.example.hienglish.fragments.QuizFragment {
+~ TextView txtSport
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+}
+class com.example.hienglish.MainActivity {
+- DrawerLayout drawerLayout
+- Fragment selectedFragment
+- {static} String CHANEL_ID
+~ NotificationManagerCompat notificationManagerCompat
+~ Intent sendIntent
+~ NavigationView.OnNavigationItemSelectedListener navListener
+~ BottomNavigationView.OnNavigationItemSelectedListener bottomNavListener
+# void onCreate(Bundle)
+- void sendMessage()
+- void creatChanelId()
+- void sendNotification()
+- void closeNavDrawer()
++ void onBackPressed()
+}
+class com.example.hienglish.classes.VocabsArray {
+~ ArrayList<Word> words
++ ArrayList<Word> getSportWords()
++ ArrayList<Word> getMedicalWords()
++ ArrayList<Word> getTravelWords()
++ ArrayList<Word> getRestaurantWords()
++ ArrayList<Word> getJobsWords()
++ ArrayList<Word> getEnvironmentWords()
++ ArrayList<Word> getCrimeWords()
++ ArrayList<Word> getScienceWords()
++ ArrayList<Word> getEducationWords()
+}
+class com.example.hienglish.quizfiles.QuizContract {
+}
+class com.example.hienglish.quizfiles.QuizContract.CategoriesTable {
++ {static} String table_name
++ {static} String column_name
+}
+class com.example.hienglish.quizfiles.QuizContract.QuestionTable {
++ {static} String table_name
++ {static} String question_column
++ {static} String option1_column
++ {static} String option2_column
++ {static} String option3_column
++ {static} String answerNb_column
++ {static} String column_category_id
+}
+class com.example.hienglish.wordsActivitys.EducationActivity {
+~ ImageView wordSpeech
+~ ImageView nextTxtView
+~ ArrayList<Word> restaurantWords
+~ ViewPager2 viewPager
+~ TextToSpeech mTts0
+~ String wordToSpell
+~ String meaningToSpell
+~ int mNextPosition
+~ int nb
+# void onCreate(Bundle)
+- void spell(TextToSpeech,String)
+# void onPause()
+# void onStop()
+# void onDestroy()
+}
+class com.example.hienglish.fragments.DefinitionFragment {
+~ String url
+~ EditText searchWord
+~ TextView definitionTxt
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- String dictionaryEntries()
++ void onViewCreated(View,Bundle)
++ void sendRequestOnClick()
++ boolean isConnected()
++ void showAlert()
+}
+class com.example.hienglish.wordsActivitys.EnvironmentActivity {
+~ ImageView wordSpeech
+~ ImageView nextTxtView
+~ ArrayList<Word> restaurantWords
+~ ViewPager2 viewPager
+~ TextToSpeech mTts0
+~ String wordToSpell
+~ String meaningToSpell
+~ int mNextPosition
+~ int nb
+# void onCreate(Bundle)
+- void spell(TextToSpeech,String)
+# void onPause()
+# void onStop()
+# void onDestroy()
+}
+class com.example.hienglish.quizfiles.QuizDbHelper {
+- {static} String DATABASE_NAME
+- {static} int DATABASE_VERSION
+- SQLiteDatabase quizDatabase
+~ ArrayList<Word> words
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
++ void onConfigure(SQLiteDatabase)
+- void fillWordsArray()
+- void fillCategoriesTable()
+- void fillQuestionTable()
+- int getCategory(int)
+- void addCategories(Category)
+- void addQuestion(Question)
++ List<Question> getCategoryQuestions(int)
+}
+class com.example.hienglish.classes.Word {
+- String mWord
+- String mTranslation
+- String mExample
+- String mDefaultLang
++ String getmWord()
++ String getmTranslation()
++ String getmExample()
++ String getmDefaultLang()
+}
+class com.example.hienglish.classes.Category {
++ {static} int CRIME
++ {static} int EDUCATION
++ {static} int ENVIRONMENT
++ {static} int JOBS
++ {static} int MEDICAL
++ {static} int RESTAURANT
++ {static} int SCIENCE
++ {static} int SPORT
++ {static} int TRAVEL
+- int id
+- String name
++ int getId()
++ void setId(int)
++ String getName()
++ void setName(String)
+}
+class com.example.hienglish.wordsActivitys.ScienceActivity {
+~ ImageView wordSpeech
+~ ImageView nextTxtView
+~ ArrayList<Word> restaurantWords
+~ ViewPager2 viewPager
+~ TextToSpeech mTts0
+~ String wordToSpell
+~ String meaningToSpell
+~ int mNextPosition
+~ int nb
+# void onCreate(Bundle)
+- void spell(TextToSpeech,String)
+# void onPause()
+# void onStop()
+# void onDestroy()
+}
+class com.example.hienglish.fragments.SettingsFragment {
+~ ImageView img
+~ SwitchMaterial switchMaterial
+~ int mHour
+~ TimePickerDialog.OnTimeSetListener timeSetListener
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onViewCreated(View,Bundle)
+- void startAlarm(Calendar)
+- void cancelAlarm()
+}
+class com.example.hienglish.quizfiles.SportQuizActivity {
++ {static} String EXTRA_CODE
+~ Intent resultIntent
+~ TextView scoreTxt
+~ Button btnConfirm
+~ RadioGroup radioGroup
+~ RadioButton r1
+~ List<Question> questionsList
+- int questionCounter
+- int questionTotal
+- Question currentQuestion
+- int score
+- boolean isAnswered
+- ColorStateList textColorDefault
+# void onCreate(Bundle)
+- void showNextQuestion()
+- void checkAnswer()
+- void showAnswer()
+- void finishQuiz()
+}
+class com.example.hienglish.NotificationHelper {
+- {static} String CHANNEL_ID
+- {static} String CHANNEL_NAME
+- NotificationManager mNotificationManager
+~ void creatChannel()
++ NotificationManager getmNotificationManager()
++ NotificationCompat.Builder getNotification()
+}
+class com.example.hienglish.wordsActivitys.JobsActivity {
+~ ImageView wordSpeech
+~ ImageView nextTxtView
+~ ArrayList<Word> restaurantWords
+~ ViewPager2 viewPager
+~ TextToSpeech mTts0
+~ String wordToSpell
+~ String meaningToSpell
+~ int mNextPosition
+~ int nb
+# void onCreate(Bundle)
+- void spell(TextToSpeech,String)
+# void onPause()
+# void onStop()
+# void onDestroy()
+}
+class com.example.hienglish.wordsActivitys.TravelActivity {
+~ ImageView wordSpeech
+~ ImageView nextTxtView
+~ ArrayList<Word> travelWords
+~ ViewPager2 viewPager
+~ TextToSpeech mTts0
+~ String wordToSpell
+~ String meaningToSpell
+~ int mNextPosition
+~ int nb
+# void onCreate(Bundle)
+- void spell(TextToSpeech,String)
+# void onPause()
+# void onStop()
+# void onDestroy()
+}
+class com.example.hienglish.classes.Question {
+- int id
+- String question
+- String option1
+- String option2
+- String option3
+- int answerNb
+- int categoryID
++ int getId()
++ void setId(int)
++ String getQuestion()
++ void setQuestion(String)
++ String getOption1()
++ void setOption1(String)
++ String getOption2()
++ void setOption2(String)
++ String getOption3()
++ void setOption3(String)
++ int getAnswerNb()
++ void setAnswerNb(int)
++ int getCategoryID()
++ void setCategoryID(int)
+}
+class com.example.hienglish.DictionaryRequest {
+~ String separator
+~ Context mContext
+~ TextView mDefTextView
+# String doInBackground(String)
+# void onPostExecute(String)
+}
+class com.example.hienglish.AlertReceiver {
++ void onReceive(Context,Intent)
+}
+class com.example.hienglish.wordsActivitys.RestaurantActivity {
+~ ImageView wordSpeech
+~ ImageView nextTxtView
+~ ArrayList<Word> restaurantWords
+~ ViewPager2 viewPager
+~ TextToSpeech mTts0
+~ String wordToSpell
+~ String meaningToSpell
+~ int mNextPosition
+~ int nb
+# void onCreate(Bundle)
+- void spell(TextToSpeech,String)
+# void onPause()
+# void onStop()
+# void onDestroy()
+}
+class com.example.hienglish.wordsActivitys.MedicalActivity {
+~ ImageView wordSpeech
+~ ImageView nextTxtView
+~ ArrayList<Word> medicalWords
+~ ViewPager2 viewPager
+~ TextToSpeech mTts0
+~ String wordToSpell
+~ String meaningToSpell
+~ int mNextPosition
+~ int nb
+# void onCreate(Bundle)
+- void spell(TextToSpeech,String)
+# void onPause()
+# void onStop()
+# void onDestroy()
+}
+class com.example.hienglish.PagerAdapter {
++ List<Word> mWordList
+~ LayoutInflater mInflater
+~ ViewPager2 mViewPager2
++ PagerAdapter.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(PagerAdapter.ViewHolder,int)
++ int getItemCount()
+}
+class com.example.hienglish.PagerAdapter.ViewHolder {
+~ TextView wordTxt
+}
+class com.example.hienglish.wordsActivitys.CrimeActivity {
+~ ImageView wordSpeech
+~ ImageView nextTxtView
+~ ArrayList<Word> restaurantWords
+~ ViewPager2 viewPager
+~ TextToSpeech mTts0
+~ String wordToSpell
+~ String meaningToSpell
+~ int mNextPosition
+~ int nb
+# void onCreate(Bundle)
+- void spell(TextToSpeech,String)
+# void onPause()
+# void onStop()
+# void onDestroy()
+}
+class com.example.hienglish.wordsActivitys.SportActivity {
+~ ImageView wordSpeech
+~ ImageView nextTxtView
++ ArrayList<Word> sportWords
+~ ViewPager2 viewPager
+~ TextToSpeech mTts0
+~ String wordToSpell
+~ String meaningToSpell
+~ int mNextPosition
+~ int nb
+# void onCreate(Bundle)
+- void spell(TextToSpeech,String)
+# void onPause()
+# void onStop()
+# void onDestroy()
+}
+
+
+androidx.fragment.app.Fragment <|-- com.example.hienglish.fragments.CategoryFragment
+androidx.fragment.app.Fragment <|-- com.example.hienglish.fragments.QuizFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.MainActivity
+com.example.hienglish.quizfiles.QuizContract +.. com.example.hienglish.quizfiles.QuizContract.CategoriesTable
+com.example.hienglish.quizfiles.BaseColumns <|.. com.example.hienglish.quizfiles.QuizContract.CategoriesTable
+com.example.hienglish.quizfiles.QuizContract +.. com.example.hienglish.quizfiles.QuizContract.QuestionTable
+com.example.hienglish.quizfiles.BaseColumns <|.. com.example.hienglish.quizfiles.QuizContract.QuestionTable
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.wordsActivitys.EducationActivity
+androidx.fragment.app.Fragment <|-- com.example.hienglish.fragments.DefinitionFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.wordsActivitys.EnvironmentActivity
+android.database.sqlite.SQLiteOpenHelper <|-- com.example.hienglish.quizfiles.QuizDbHelper
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.wordsActivitys.ScienceActivity
+androidx.fragment.app.Fragment <|-- com.example.hienglish.fragments.SettingsFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.quizfiles.SportQuizActivity
+android.content.ContextWrapper <|-- com.example.hienglish.NotificationHelper
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.wordsActivitys.JobsActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.wordsActivitys.TravelActivity
+android.os.AsyncTask <|-- com.example.hienglish.DictionaryRequest
+android.content.BroadcastReceiver <|-- com.example.hienglish.AlertReceiver
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.wordsActivitys.RestaurantActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.wordsActivitys.MedicalActivity
+com.example.hienglish.Adapter <|-- com.example.hienglish.PagerAdapter
+com.example.hienglish.PagerAdapter +.. com.example.hienglish.PagerAdapter.ViewHolder
+com.example.hienglish.ViewHolder <|-- com.example.hienglish.PagerAdapter.ViewHolder
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.wordsActivitys.CrimeActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hienglish.wordsActivitys.SportActivity
+@enduml

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?actionBarSize">
+
+    <EditText
+        android:id="@+id/search_word"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="22dp"
+        android:hint="@string/enter_the_word_to_search_for"
+        android:drawableStart="@drawable/ic_search"
+        android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/definition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_word"
+        android:text=""
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_margin="16dp"/>
+    <TextView
+        android:id="@+id/example"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/definition"
+        android:text=""
+        android:textSize="28sp"
+        android:layout_margin="16dp"/>
+
+</RelativeLayout>

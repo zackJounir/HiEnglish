@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:layout_marginBottom="?attr/actionBarSize"
+    android:background="@drawable/background_shape"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp"
+        android:paddingBottom="14dp"
+        android:columnCount="2"
+        android:rowCount="4">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
+            style="@style/card_view_style">
+
+            <TextView
+                style="@style/card_text_style"
+                android:layout_gravity="center"
+                android:drawablePadding="6dp"
+                android:text="@string/sport"
+                app:drawableTopCompat="@drawable/ic_sports" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card2"
+            style="@style/card_view_style">
+
+            <TextView
+                style="@style/card_text_style"
+                android:layout_gravity="center"
+                android:drawablePadding="6dp"
+                android:text="Science"
+                app:drawableTopCompat="@drawable/ic_science" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card3"
+            style="@style/card_view_style">
+
+            <TextView
+                style="@style/card_text_style"
+                android:layout_gravity="center"
+                android:drawablePadding="6dp"
+                android:text="Restaurant"
+                app:drawableTopCompat="@drawable/ic_restaurant" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card4"
+            style="@style/card_view_style">
+
+            <TextView
+                style="@style/card_text_style"
+                android:layout_gravity="center"
+                android:drawablePadding="6dp"
+                android:text="Medical"
+                app:drawableTopCompat="@drawable/ic_medical" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card5"
+            style="@style/card_view_style">
+
+            <TextView
+                style="@style/card_text_style"
+                android:layout_gravity="center"
+                android:drawablePadding="6dp"
+                android:text=" Jobs"
+                app:drawableTopCompat="@drawable/ic_jobs" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card6"
+            style="@style/card_view_style">
+
+            <TextView
+                style="@style/card_text_style"
+                android:layout_gravity="center"
+                android:drawablePadding="6dp"
+                android:text="@string/travel"
+                app:drawableTopCompat="@drawable/ic_travel" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card7"
+            style="@style/card_view_style">
+            <TextView
+                style="@style/card_text_style"
+                android:layout_gravity="center"
+                android:drawablePadding="6dp"
+                android:text="Environment"
+                app:drawableTopCompat="@drawable/ic_environment" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card8"
+            style="@style/card_view_style">
+
+            <TextView
+                style="@style/card_text_style"
+                android:layout_gravity="center"
+                android:drawablePadding="6dp"
+                android:text="Crime"
+                app:drawableTopCompat="@drawable/ic_crime" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card9"
+            style="@style/card_view_style">
+
+            <TextView
+                style="@style/card_text_style"
+                android:layout_gravity="center"
+                android:drawablePadding="6dp"
+                android:text="Education"
+                app:drawableTopCompat="@drawable/ic_education" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card10"
+            style="@style/card_view_style">
+
+            <TextView
+                style="@style/card_text_style"
+                android:layout_gravity="center"
+                android:drawablePadding="6dp"
+                android:text="Computer"
+                app:drawableTopCompat="@drawable/ic_computer" />
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+</ScrollView>
